@@ -1,9 +1,6 @@
 import pygame
 import pygame_menu
-
-pygame.init()
-screen = pygame.display.set_mode((600, 400))
-
+import asyncio
 
 class Game:
 	screen = None
@@ -149,6 +146,9 @@ def switch_music():
 	else:
 		pygame.mixer.music.set_volume(1)
 
+# Create the screen
+pygame.init()
+screen = pygame.display.set_mode((600, 400))
 
 # Crear el menú, darle nombre y dimensiones
 menu = pygame_menu.Menu(width=600, height=400, theme=pygame_menu.themes.THEME_DARK, title="Bienvenido")
@@ -163,5 +163,8 @@ menu.add.button("Hell", start_hell)	# Crear el botón hell
 menu.add.button("Mute/Unmute music", switch_music)	# Crear el botón mute/unmute
 menu.add.button("Quit", pygame_menu.events.EXIT)	# Crear el botón quit
 
-if __name__ == "__main__":
+async def main():
 	menu.mainloop(screen)
+	await asyncio.sleep(0)
+
+asyncio.run(main())
