@@ -1,5 +1,12 @@
-import pygame
+# /// script
+# dependencies = [
+#  "pygame_menu",
+# ]
+# ///
+
 import pygame_menu
+import pygame
+import pygame.gfxdraw
 import asyncio
 
 class Game:
@@ -146,25 +153,33 @@ def switch_music():
 	else:
 		pygame.mixer.music.set_volume(1)
 
-# Create the screen
-pygame.init()
-screen = pygame.display.set_mode((600, 400))
-
-# Crear el menú, darle nombre y dimensiones
-menu = pygame_menu.Menu(width=600, height=400, theme=pygame_menu.themes.THEME_DARK, title="Bienvenido")
-# Crear el mixer e inicializar la musica
-pygame.mixer.music.load("Recursos/song.wav")
-pygame.mixer.music.play(-1)
-
-menu.add.button("Easy", start_easy)	# Crear el botón easy
-menu.add.button("Medium", start_medium)	# Crear el botón medium
-menu.add.button("Hard", start_hard)	# Crear el botón hard
-menu.add.button("Hell", start_hell)	# Crear el botón hell
-menu.add.button("Mute/Unmute music", switch_music)	# Crear el botón mute/unmute
-menu.add.button("Quit", pygame_menu.events.EXIT)	# Crear el botón quit
-
 async def main():
-	menu.mainloop(screen)
+	# Create the screen
+	pygame.init()
+	screen = pygame.display.set_mode((600, 400))
+
+	# Commented for HTML Preview
+	# Crear el menú, darle nombre y dimensiones
+	menu = pygame_menu.Menu(width=600, height=400, theme=pygame_menu.themes.THEME_DARK, title="Bienvenido")
+
+	# Crear el mixer e inicializar la musica
+	pygame.mixer.music.load("Recursos/song.wav")
+	pygame.mixer.music.play(-1)
+
+	# Commented for HTML Preview
+	menu.add.button("Easy", start_easy)  # Crear el botón easy
+	menu.add.button("Medium", start_medium)  # Crear el botón medium
+	menu.add.button("Hard", start_hard)  # Crear el botón hard
+	menu.add.button("Hell", start_hell)  # Crear el botón hell
+	menu.add.button("Mute/Unmute music", switch_music)  # Crear el botón mute/unmute
+	menu.add.button("Quit", pygame_menu.events.EXIT)  # Crear el botón quit
+
+	# Commented for HTML Preview
+	await menu.mainloop(screen)
+
+	# Uncomment for HTML Preview
+	# await Game(600, 400, (0.2, 3, 3))
+
 	await asyncio.sleep(0)
 
 asyncio.run(main())
