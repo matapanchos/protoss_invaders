@@ -1,0 +1,4 @@
+- Reinicio del juego sin cerrar
+- Añadir una ventana inicial de texto
+- HTML version
+  - https://www.youtube.com/watch?v=q25i2CCNvis
