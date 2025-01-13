@@ -2,3 +2,5 @@
 - Añadir una ventana inicial de texto
 - HTML version
   - https://www.youtube.com/watch?v=q25i2CCNvis
+  - https://www.youtube.com/watch?v=4mEaB-PK5SE
+  - Optimize game for browser
